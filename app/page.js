@@ -1,11 +1,8 @@
 import ProductGrid from "@/components/ProductGrid";
-import { getProducts, toSlug } from "@/lib/products";
+import { FALLBACK_PRODUCTS, toSlug } from "@/lib/products";
 
-export const dynamic = "force-dynamic";
-
-export default async function HomePage() {
-  const all = await getProducts();
-  const products = all.map((p) => ({
+export default function HomePage() {
+  const products = FALLBACK_PRODUCTS.map((p) => ({
     id: p.id,
     title: p.title,
     image: p.image,
